@@ -1,0 +1,42 @@
+*/programa auto increible*/
+
+#include <p18f4550.h>
+#define MAX 8
+#DEFINE MIN 1
+#define RET 100
+#define INTCONBits.GIE ei
+
+void main(void)
+{
+	
+	TRISC=0X00;
+	TRISD= 0;      //OUTPUT
+	LATD =1;       // PORTD VALUE 1
+
+INTCONbits.INT0E=1;
+INTCON2bits.INTEDG0=1;
+INTCONbits.INT0F=0;
+
+ei();
+void intrr serviciointerrupcion (void) {
+	if(INTCONbits.INT== 1)
+{ 
+
+
+		while (PORTD != MAX)
+		{
+		 LATD<<;
+		 delay_ms (RET);
+		}
+		
+		While (PORTD !=MIN)
+		{
+		 LATD>>;
+		 delay_ms (RET);
+
+		}
+LATC= !LATC;
+INTCONbits.INT= 0;
+}   	
+
+	
