@@ -4,7 +4,7 @@
 #define MAX 8
 #DEFINE MIN 1
 #define RET 100
-#define INTCONBits.GIE ei
+
 
 void main(void)
 {
@@ -13,13 +13,8 @@ void main(void)
 	TRISD= 0;      //OUTPUT
 	LATD =1;       // PORTD VALUE 1
 
-INTCONbits.INT0E=1;
-INTCON2bits.INTEDG0=1;
-INTCONbits.INT0F=0;
 
-ei();
-void intrr serviciointerrupcion (void) {
-	if(INTCONbits.INT== 1)
+
 { 
 
 
@@ -35,8 +30,7 @@ void intrr serviciointerrupcion (void) {
 		 delay_ms (RET);
 
 		}
-LATC= !LATC;
-INTCONbits.INT= 0;
+
 }   	
 
 	
